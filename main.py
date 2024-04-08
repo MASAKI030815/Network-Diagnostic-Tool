@@ -9,6 +9,6 @@ from view_all import view_all
 if __name__ == '__main__':
     view_all()
     while True:
-        #display_gateway_v4()
-        #display_myip_v4()
+        display_gateway_v4()
+        display_myip_v4()
         time.sleep(1)

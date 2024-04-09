@@ -22,14 +22,15 @@ def get_myip_v4v6():
                 for addr_info in addrs[netifaces.AF_INET6]:
                     if not addr_info['addr'].startswith('fe80'):
                         ipv6_addr = addr_info['addr'].split('%')[0]
-                        return interface,ipv4_addr,netmask,gateway,ipv6_addr
+                        break
 
     except Exception as e:
         print(f"IPアドレス取得中にエラーが発生しました: {e}")
 
+    return interface,ipv4_addr,netmask,gateway,ipv6_addr
+
 def display_myip_v4():
-    ipv6_addr = ipv4_addr = netmask = gateway = interface = None
-    results = {interface,ipv4_addr,netmask,gateway,ipv6_addr}
+    results = {}
     title = "-------Network Setting-------\n"
     results_text = f"{title}"
     results = get_myip_v4v6()
@@ -48,3 +49,5 @@ def display_myip_v4():
         results_text += f"IPv6 Address: {results[4]}\n"
 
     return results_text
+
+

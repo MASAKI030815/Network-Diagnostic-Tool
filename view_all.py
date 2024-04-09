@@ -1,7 +1,7 @@
 import tkinter as tk
 import tkinter.font as tkFont
-from display_gateway_v4 import display_gateway_v4
-from display_myip_v4 import display_myip_v4
+from gateway_v4 import display_gateway_v4
+from myip_v4v6 import display_myip_v4
 
 def update_gateway_display():
     results_gateway = display_gateway_v4()

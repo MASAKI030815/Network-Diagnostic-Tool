@@ -29,13 +29,7 @@ def display_gateway_v4():
         overall_status_text = "NG"
 
     gateway_ip = netifaces.gateways()['default'][netifaces.AF_INET][0]
-    result_text = f"{title}{overall_status_text} (Short / Large) : {gateway_ip}\n\n"
+    result_text = f"{title}{overall_status_text} (Short / Large) : {gateway_ip} (Gateway)\n"
 
     return result_text,overall_status_text,short_result,large_result
 
-
-
-
-
-
-#ping_gateway_v4()

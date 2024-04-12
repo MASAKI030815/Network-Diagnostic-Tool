@@ -1,8 +1,8 @@
 import tkinter as tk
 import tkinter.font as tkFont
 import threading
-from myip_v4v6 import display_myip_v4
-from gateway_v4 import display_gateway_v4
+from get_myip import display_myip_v4
+from command_internet_pingv6 import display_gateway_v4
 
 class App:
     def __init__(self, root):
@@ -70,10 +70,10 @@ class App:
 
     def update_gui(self):
         myip_thread = threading.Thread(target=self.fetch_myip)
-        myip_thread.setDaemon(True)  # スレッドをデーモンスレッドとして設定
+        #myip_thread.setDaemon(True)  # スレッドをデーモンスレッドとして設定
         myip_thread.start()
         gateway_thread = threading.Thread(target=self.fetch_gateway)
-        gateway_thread.setDaemon(True)  # スレッドをデーモンスレッドとして設定
+        #gateway_thread.setDaemon(True)  # スレッドをデーモンスレッドとして設定
         gateway_thread.start()
 
         self.root.after(100, self.update_gui)

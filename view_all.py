@@ -1,7 +1,7 @@
 import tkinter as tk
 import tkinter.font as tkFont
-from gateway_v4 import display_gateway_v4
-from myip_v4v6 import display_myip_v4
+from command_internet_pingv6 import display_gateway_v4
+from get_myip import display_myip_v4
 
 def update_gateway_display():
     results_gateway = display_gateway_v4()
@@ -60,3 +60,25 @@ def view_all():
 
     update_gateway_display()  # 初回のゲートウェイ情報更新
     root.mainloop()
+
+
+    def display_myip_v4():
+    results = {}
+    title = "-------Network Setting-------\n"
+    results_text = f"{title}"
+    results = get_myip_v4v6()
+
+    if results[0]:
+        results_text += f"Interface: {results[0]}\n"
+
+    if results[1] and results[2]:
+        results_text += f"IPv4 Address: {results[1]}\n"
+        results_text += f"Netmask: {results[2]}\n"
+
+    if results[3]:
+        results_text += f"Default Gateway: {results[3]}\n"
+
+    if results[4]:
+        results_text += f"IPv6 Address: {results[4]}\n"
+
+    return results_text
